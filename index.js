@@ -22,16 +22,25 @@ const rl = createInterface(process.stdin, process.stdout)
 //const app = express()
 //const port = process.env.PORT || 8080;
 
-say('Shizuka\nBot\nMD', {
+say('MomoAyase\nBot\nMD', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`Creado por By @Alba070503`, {
+say(`Por @Alba070503`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']})
 
 var isRunning = false
+
+process.on('uncaughtException', (err) => {
+if (err.code === 'ENOSPC') {
+console.error('Se ha detectado ENOSPC (sin espacio o límite de watchers alcanzado), reiniciando....')
+} else {
+console.error('Error no capturado:', err)
+}
+process.exit(1)
+})
 
 async function start(file) {
 if (isRunning) return
@@ -86,14 +95,13 @@ console.log(chalk.yellow(`╭${lineM}
 ┊${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
 ┊${chalk.blueBright('┊')} ${chalk.blue.bold(`🟢INFORMACIÓN :`)}
 ┊${chalk.blueBright('┊')} ${chalk.blueBright('┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-┊${chalk.blueBright('┊')}${chalk.cyan(`⛩️ Nombre: ${packageJsonObj.name}`)}
-┊${chalk.blueBright('┊')}${chalk.cyan(`🎂 Versión: ${packageJsonObj.version}`)}
-┊${chalk.blueBright('┊')}${chalk.cyan(`🎃 Descripción: ${packageJsonObj.description}`)}
-┊${chalk.blueBright('┊')}${chalk.cyan(`🗿 Project Author: ${packageJsonObj.author.name} (@Alba070503)`)}
+┊${chalk.blueBright('┊')}${chalk.cyan(`💚 Nombre: ${packageJsonObj.name}`)}
+┊${chalk.blueBright('┊')}${chalk.cyan(`𓃠 Versión: ${packageJsonObj.version}`)}
+┊${chalk.blueBright('┊')}${chalk.cyan(`💜 Descripción: ${packageJsonObj.description}`)}
+┊${chalk.blueBright('┊')}${chalk.cyan(`😺 Project Author: ${packageJsonObj.author.name} Powered @Alba070503`)}
 ┊${chalk.blueBright('┊')}${chalk.blueBright('┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-┊${chalk.blueBright('┊')}${chalk.yellow(`🤖 Colaboradores:`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• elrebelde (Mario ofc)`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• BrunoSobrino (MysticBot-MD)`)}
+┊${chalk.blueBright('┊')}${chalk.yellow(`💜 Colaborador:`)}
+┊${chalk.blueBright('┊')}${chalk.yellow(`• GataDios`)}
 ┊${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ┊${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
 ┊${chalk.blueBright('┊')}${chalk.cyan(`⏰ Hora Actual :`)}
