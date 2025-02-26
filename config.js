@@ -479,4 +479,4 @@ global.grupo2 = "https://whatsapp.com/channel/0029VahtqH6BlHpjV0Va2a3R"
 global.grupo_collab1 = "https://whatsapp.com/channel/0029VahtqH6BlHpjV0Va2a3R"
 global.grupo_collab2 = "https://whatsapp.com/channel/0029VahtqH6BlHpjV0Va2a3R"
 global.grupo_collab3 = "https://whatsapp.com/channel/0029VahtqH6BlHpjV0Va2a3R"
-global.grupo_collab4 = "https://whatsapp.com/channel/0029VahtqH6BlHpjV0Va2a3R
+global.grupo_collab4 = "https://whatsapp.com/channel/0029VahtqH6BlHpjV0Va2a3R"
