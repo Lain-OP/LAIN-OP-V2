@@ -100,7 +100,7 @@ printQRInTerminal: false,
 auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
 msgRetry,
 msgRetryCache,
-browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['GataBot-MD (Sub Bot)', 'Chrome','2.0.0'],
+browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['MomoAyaseBot-MD (Sub Bot)', 'Chrome','2.0.0'],
 version: version,
 generateHighQualityLinkPreview: true
 };
@@ -250,7 +250,7 @@ await sleep(3000)
 await global.conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
-body: '🥀 ¡Nuevo sub-bot encontrado!',
+body: '🙀 ¡Nuevo sub-bot encontrado!',
 thumbnailUrl: ppch,
 sourceUrl: accountsgb,
 mediaType: 1,
@@ -276,9 +276,6 @@ m?.chat ? await conn.sendMessage(m.chat, {text : `☄️ *IMPORTANTE*
 > Si tienes problemas de conexión, elimina los datos y usa el token o solicita un nuevo código QR o código de 8 dígitos.\n
 > Si te llega un mensaje de *"sesión reemplazada"* realiza la indicación anterior.\n
 > Si se desconecta frecuentemente usa \`${usedPrefix + command}\` si el problema persiste vuelve a ser sub bot.
-
-*Política de uso:*
-github.com/GataNina-Li/GataBot-MD/blob/master/terms.md
 `}, { quoted: m }) : ''
 }}
 setInterval(async () => {
