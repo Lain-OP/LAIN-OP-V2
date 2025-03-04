@@ -184,7 +184,7 @@ loadDatabase();/*
 /* ------------------------------------------------*/
 
 global.creds = 'creds.json'
-global.authFile = 'session'
+global.authFile = 'sessions'
 global.authFileJB  = 'GataJadiBot'
 global.rutaBot = join(__dirname, authFile)
 global.rutaJadiBot = join(__dirname, authFileJB)
@@ -619,13 +619,13 @@ unlinkSync(filePath)})
 }
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./Session")
+let directorio = readdirSync("./sessions")
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-')
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./session/${files}`)
+unlinkSync(`./sessions/${files}`)
 })
 } 
 function purgeSessionSB() {
@@ -651,7 +651,7 @@ console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSessionSB2()))
 console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
 }}
 function purgeOldFiles() {
-const directories = ['./session/', './GataJadiBot/']
+const directories = ['./sessions/', './GataJadiBot/']
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
 if (err) throw err
@@ -715,4 +715,4 @@ return false
 async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
 await conn.newsletterFollow(channelId).catch(() => {})
-}
+}}
