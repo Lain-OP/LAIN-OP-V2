@@ -1,36 +1,37 @@
-/* 
+import fetch from 'node-fetch';
 
-❀ By JTxs
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+    await conn.sendMessage(m.chat, { react: { text: `🎶`, key: m.key } });
 
-[ Canal Principal ] :
-https://whatsapp.com/channel/0029VaeQcFXEFeXtNMHk0D0n
+    try {
+        if (!text) return m.reply(`🎵 Escribe por favor el nombre de la canción :)...`);
 
-[ Canal Rikka Takanashi Bot ] :
-https://whatsapp.com/channel/0029VaksDf4I1rcsIO6Rip2X
+        let play2 = await fetch(`https://carisys.online/api/pesquisas/youtube?query=${encodeURIComponent(text)}`)
+            .then(res => res.json());
 
-[ Canal StarlightsTeam] :
-https://whatsapp.com/channel/0029VaBfsIwGk1FyaqFcK91S
+        if (!play2.resultado || !play2.resultado.url) return m.reply(`❌ No se encontró la canción.`);
 
-[ HasumiBot FreeCodes ] :
-https://whatsapp.com/channel/0029Vanjyqb2f3ERifCpGT0W
-*/
+        await conn.sendMessage(m.chat, {
+            audio: { url: `https://carisys.online/api/downloads/youtube/mp3-2?url=${play2.resultado.url}` },
+            fileName: `${play2.resultado.titulo}.mpeg`,
+            mimetype: "audio/mpeg",
+            contextInfo: {
+                externalAdReply: {
+                    title: play2.resultado.titulo,
+                    body: `Alba070503-Developed`,
+                    mediaType: 1,
+                    reviewType: "PHOTO",
+                    thumbnailUrl: play2.resultado.imagem,
+                    showAdAttribution: true,
+                    renderLargerThumbnail: true
+                }
+            }
+        }, { quoted: m });
+    } catch (error) {
+        console.error(error);
+        return m.reply(`❌ Hubo un pequeño error al procesar la solicitud.`);
+    }
+};
 
-// *[ ❀ YTMP4 ]*
-import fetch from 'node-fetch'
-
-let HS = async (m, { conn, command, text, usedPrefix }) => {
-if (!text) return conn.reply(m.chat, '❀ ingresa un link de youtube', m)
-//si borras creditos eri gei 👀
-try {
-let api = await fetch(`https://api.davidcyriltech.my.id/download/ytmp4?url=${text}`)
-let json = await api.json()
-let { title, quality, thumbnail, download_url } = json.result
-await conn.sendMessage(m.chat, { video: { url: download_url }, caption: title }, { quoted: m })
-} catch (error) {
-console.error(error)
-}}
-
-HS.command = ['ytmp5']
-
-export default HS
-//Dejen creditos 👀 [ By Jtxs ] https://whatsapp.com/channel/0029Vanjyqb2f3ERifCpGT0W
+handler.command = ['playrandom'];
+export default handler;
