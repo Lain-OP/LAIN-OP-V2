@@ -14,16 +14,7 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
 ["59175655964", 'Onwer Alba070503', true], //ShizukaBot-MD 💙
-["59169082575"], 
-["59169214837"],
-["5218715746374"],
-["593968585383"],
-["595976126756"],
-["584125778026"],
-["593968263524"],
-["5215539356057"],
-["573012482597"],
-["51968374620"]]
+["13863609387"], 
 
 global.mods = []
 global.prems = []
